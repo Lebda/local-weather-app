@@ -8,6 +8,8 @@
     "build:prod": "ng build --prod",
     "test": "ng test",
     "test:prod": "ng test --watch false",
+    "prenow:publish": "npm run build:prod",
+    "now:publish": "now --platform-version 2 dist/local-weather-app",
     "lint": "tslint --config tslint.json --project . -e \"**/{test,polyfills}.ts\"",
     "lint:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "e2e": "ng e2e",
