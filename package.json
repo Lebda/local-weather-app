@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --watch false",
     "lint": "tslint --config tslint.json --project . -e \"**/{test,polyfills}.ts\"",
     "lint:fix": "tslint --config tslint.json --fix --project . -e \"**/{test,polyfills}.ts\"",
     "e2e": "ng e2e",
