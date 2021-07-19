@@ -11,9 +11,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
-    expect(await page.getTitleText()).toEqual(
-      'local-weather-app app is running!'
-    );
+    expect(await page.getTitleText()).toEqual('LocalCast Weather');
   });
 
   afterEach(async () => {
