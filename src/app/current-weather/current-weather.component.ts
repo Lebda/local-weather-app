@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentWeatherMaker, ICurrentWeather } from '../interfaces';
+import { WeatherService } from '../weather/weather.service';
 
 @Component({
   selector: 'app-current-weather',
@@ -9,9 +10,13 @@ import { CurrentWeatherMaker, ICurrentWeather } from '../interfaces';
 export class CurrentWeatherComponent implements OnInit {
   public current: ICurrentWeather;
 
-  public constructor() {
+  public constructor(private readonly weatherService: WeatherService) {
     this.current = CurrentWeatherMaker.Make();
   }
 
-  ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.weatherService
+      .getCurrentWeather('Bethesda', 'US')
+      .subscribe((data) => (this.current = data));
+  }
 }

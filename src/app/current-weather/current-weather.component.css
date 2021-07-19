@@ -1,0 +1,15 @@
+img {
+  height: 30px;
+}
+
+.city span {
+  display: block;
+}
+
+.temparature span {
+  display: block;
+}
+
+.temparature {
+  text-align: center;
+}

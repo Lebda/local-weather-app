@@ -1,6 +1,11 @@
-<div>
+<div class="city">
   <span>{{current.city}}, {{current.country}}</span>
+  <span>{{current.date | date:'fullDate'}}</span>
+</div>
+<div class="temparature">
+  <img [src]='current.image'>
+  <span>{{current.temperature | number:'1.0-0'}}˚F</span>
 </div>
 <div>
-  <span>{{current.date | date:'fullDate'}}</span>
+  {{current.description}}
 </div>
