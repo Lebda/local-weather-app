@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
+    "vercel:build": "ng build --prod",
     "test": "ng test",
     "test:prod": "ng test --watch false",
     "prenow:publish": "npm run build:prod",
