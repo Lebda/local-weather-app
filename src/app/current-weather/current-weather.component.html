@@ -1,4 +1,6 @@
-<div fxLayout="row">
+<div *ngIf="current$ | async as current; else loading"
+>
+  <div fxLayout="row">
   <div fxFlex="66%" class="mat-title no-margin">{{current.city}}, {{current.country}}
   </div>
   <div fxFlex class="mat-h3 no-margin right">
@@ -20,3 +22,7 @@
     {{current.description}}
   </div>
 </div>
+</div>
+<ng-template #loading>
+  Loading...
+</ng-template>
