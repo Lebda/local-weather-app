@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { CurrentWeatherMaker, ICurrentWeather } from '../interfaces';
+import { ICurrentWeather } from '../interfaces';
 import { WeatherService } from '../weather/weather.service';
 
 @Component({

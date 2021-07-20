@@ -26,7 +26,7 @@ export class CitySearchComponent implements OnInit {
 
   public ngOnInit(): void {}
 
-  public doSearch(searchValue: string) {
+  public doSearch(searchValue: string): void {
     const userInput = searchValue.split(',').map((s) => s.trim());
     const searchText = userInput[0];
     const country = userInput.length > 1 ? userInput[1] : undefined;

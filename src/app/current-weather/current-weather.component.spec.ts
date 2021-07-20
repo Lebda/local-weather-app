@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CurrentWeatherComponent } from './current-weather.component';
 import { WeatherService } from '../weather/weather.service';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { CurrentWeatherMaker, ICurrentWeather } from '../interfaces';
 import { By } from '@angular/platform-browser';
 import { MaterialModule } from '../material.module';
@@ -40,7 +40,7 @@ describe('CurrentWeatherComponent', () => {
 
   it('should create', () => {
     // Arrange
-    //weatherServiceMock.getCurrentWeather.and.returnValue(of());
+    // weatherServiceMock.getCurrentWeather.and.returnValue(of());
     // Act
     fixture.detectChanges(); // triggers ngOnInit
     // Assert
@@ -60,7 +60,7 @@ describe('CurrentWeatherComponent', () => {
 
   it('should eagerly load currentWeather in Bethesda from weatherService', () => {
     // Arrange
-    //weatherServiceMock.currentWeather$.next(CurrentWeatherMaker.Make());
+    // weatherServiceMock.currentWeather$.next(CurrentWeatherMaker.Make());
 
     // Act
     fixture.detectChanges(); // triggers ngOnInit()
