@@ -5,6 +5,7 @@ import { WeatherService } from '../weather/weather.service';
 import { of } from 'rxjs';
 import { CurrentWeatherMaker } from '../interfaces';
 import { By } from '@angular/platform-browser';
+import { MaterialModule } from '../material.module';
 
 describe('CurrentWeatherComponent', () => {
   let component: CurrentWeatherComponent;
@@ -16,7 +17,7 @@ describe('CurrentWeatherComponent', () => {
       'getCurrentWeather',
     ]);
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, MaterialModule],
       providers: [
         {
           provide: WeatherService,
@@ -69,7 +70,9 @@ describe('CurrentWeatherComponent', () => {
 
     // Assert on DOM
     const debugEl = fixture.debugElement;
-    const titleEl: HTMLElement = debugEl.query(By.css('span')).nativeElement;
+    const titleEl: HTMLElement = debugEl.query(
+      By.css('.mat-title')
+    ).nativeElement;
     expect(titleEl.textContent).toContain('Bethesda');
   });
 });

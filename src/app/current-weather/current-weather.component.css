@@ -1,15 +1,18 @@
 img {
-  height: 30px;
+  height: 60px;
+  margin-top: 5px;
+  padding: 0px;
+  zoom: 175%;
 }
 
-.city span {
-  display: block;
+.right {
+  text-align: right;
 }
 
-.temparature span {
-  display: block;
+.no-margin {
+  margin-bottom: 0;
 }
 
-.temparature {
-  text-align: center;
+.unit {
+  vertical-align: super;
 }
