@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CurrentWeatherMaker, ICurrentWeather } from '../interfaces';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { ICurrentWeather } from '../interfaces';
 import { WeatherService } from '../weather/weather.service';
 
 @Component({
@@ -7,20 +8,22 @@ import { WeatherService } from '../weather/weather.service';
   templateUrl: './current-weather.component.html',
   styleUrls: ['./current-weather.component.css'],
 })
-export class CurrentWeatherComponent implements OnInit {
-  public current: ICurrentWeather;
+export class CurrentWeatherComponent implements OnInit, OnDestroy {
+  public current$: Observable<ICurrentWeather>;
+  private currentWeatherSubscription = new Array<Subscription>();
 
   public constructor(private readonly weatherService: WeatherService) {
-    this.current = CurrentWeatherMaker.Make();
+    this.current$ = this.weatherService.currentWeather$;
   }
 
-  public ngOnInit(): void {
-    this.weatherService
-      .getCurrentWeather('Bethesda', 'US')
-      .subscribe((data) => (this.current = data));
-  }
+  public ngOnInit(): void {}
 
-  public getOrdinal(date: Date): string {
+  public ngOnDestroy(): void {}
+
+  public getOrdinal(date: Date | undefined): string {
+    if (!date) {
+      return '';
+    }
     const n = date.getDate();
     return n > 0
       ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10]
