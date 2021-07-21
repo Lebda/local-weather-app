@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { mergeMap, defaultIfEmpty } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
@@ -10,6 +10,7 @@ export interface IPostalCode {
   placeName: string;
   lng: number;
   lat: number;
+  valid: boolean;
 }
 
 export class PostalCodeMaker {
@@ -22,6 +23,7 @@ export class PostalCodeMaker {
       placeName: '',
       lng: 0,
       lat: 0,
+      valid: false,
     };
     return data;
   }
@@ -42,6 +44,8 @@ export class PostalCodeService implements IPostalCodeService {
   public constructor(private httpClient: HttpClient) {}
 
   public resolvePostalCode(postalCode: string): Observable<IPostalCode> {
+    return of(PostalCodeMaker.Make());
+
     const uriParams = new HttpParams()
       .set('maxRows', '1')
       .set('username', environment.username)
